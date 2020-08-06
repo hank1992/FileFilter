@@ -334,6 +334,9 @@ def organize_datetime(df, info):
 
     """
     time = []
+
+    df = df.dropna() # 有些file底部cell內容都是nan
+
     if df is not None and len(df) > 0:
         # 檢查是否有日期時間格式
         for i in range(len(df.columns)):
