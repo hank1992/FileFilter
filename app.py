@@ -1,7 +1,12 @@
 # using UTF-8 encoding
 # author: 張頌宇
 
-import utils # utils.py
+# %%
+import utils  # utils.py
+import time
+
+# %%
+
 
 def main():
     """主程式
@@ -21,14 +26,24 @@ def main():
         step = '1'
 
     # 檔案架構樹
-    tree = utils.get_files(input_root, output_root) # utils.py裡面的get_files函式
+    tree = utils.get_files(input_root, output_root)  # utils.py裡面的get_files函式
 
     # 開始合併每位受試者每天的資料
     for id in tree:
         for day in tree[id]:
             print("Start: " + day)
-            utils.merge(tree[id][day], output_root, seconds=int(step)) # utils.py裡面的merge函式
+            utils.merge(tree[id][day], output_root,
+                        seconds=int(step))  # utils.py裡面的merge函式
+
 
 if __name__ == "__main__":
+    # 開始計時
+    tStart = time.time()
+
     # 開始執行主程式
     main()
+
+    # 計時結束
+    tEnd = time.time()
+    print('Elapsed time: {: 6.5f} sec'.format(tEnd-tStart))
+#%%
