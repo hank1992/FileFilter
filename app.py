@@ -46,4 +46,3 @@ if __name__ == "__main__":
     # 計時結束
     tEnd = time.time()
     print('Elapsed time: {: 6.5f} sec'.format(tEnd-tStart))
-#%%
